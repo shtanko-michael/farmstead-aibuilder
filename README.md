@@ -1,6 +1,10 @@
 <h1 align="center">Farmstead AI Builder</h1>
 
 <p align="center">
+  <b>Русский</b> · <a href="README.en.md">English</a>
+</p>
+
+<p align="center">
   <b>Мод для Minecraft, который строит по текстовому описанию.</b><br>
   Игрок пишет <code>/aibuild create средневековая таверна с верандой</code> — через пару минут
   постройка вырастает у него на глазах, блок за блоком.
@@ -260,52 +264,17 @@ RegionGuard.
 | `[regionguard] claim check failed` | RegionGuard стоит, но его вызов упал; установка отклоняется, пока это не починено |
 | Команда с русским текстом «не проходит» | Какой-то мод фильтрует символы в командах (у NeoEssentials — `security.allowUnsafeCommands`) |
 
+Сообщения мода в игре сейчас на русском; локализация интерфейса в планах.
+
 Ошибки и предложения — в [Issues](https://github.com/shtanko-michael/farmstead-aibuilder/issues).
 
 ---
 
-## English
-
-**Farmstead AI Builder** is a Minecraft mod that generates buildings from a text prompt. A player
-types `/aibuild create a medieval tavern with a porch`, aims a hologram preview, rotates it with `R`,
-confirms — and the structure is laid block by block in front of them. Everything can be undone:
-`/aibuild undo` restores exactly what stood there before.
-
-**Features**
-
-- Text-to-build generation: houses, towers, bridges, farms, whole plazas — planned per prompt, not
-  picked from a schematic pack.
-- Hologram preview before anything is written to the world; rotate, reposition, confirm or cancel.
-- Block-by-block construction with particles, sound and a beacon beam, on a per-tick time budget so
-  the server does not stall.
-- Generate **into a selected region** (`/aibuild area`) so a building fits an existing street.
-- Full undo of any placement, including what the build covered.
-- Per-player build library: place a saved build again for free.
-- Vanilla clients work (the build lands in front of them); clients with the mod get the hologram.
-- Owner-side spend control: daily caps for the server and per player, per-player bans, and a spend
-  report — all in the web cabinet.
-
-**How it works.** Generation runs on `ai.farmsteadminecraft.online`, not on your machine: your server
-sends the prompt and receives blocks. No GPU, no model keys on your side. Generations are billed to
-the token owner's AI-token balance (~200–600 tokens per build).
-
-**Requirements.** NeoForge 1.21.1 server (Java 21), the same jar on players' clients, an account on
-[farmsteadminecraft.online](https://farmsteadminecraft.online) with AI tokens, and outbound HTTPS.
-LuckPerms is optional — it is only needed to hand commands out per group.
-
-**Install.** Drop the jar into `mods/`, start once, paste the `fsm_…` token from
-[the cabinet](https://farmsteadminecraft.online/cabinet/ai-builder) into
-`config/farmstead_aibuilder.toml`, restart, and check the `[hello]` line in the log.
-
-**Permissions.** Every subcommand is gated by a vanilla permission level (`[permissions]` in the
-config) **or** a node — `aibuilder.command.create`, `.area`, `.get`, `.list`, `.placed`, `.undo`,
-`.balance`, `.topup`. The mod registers these with the NeoForge Permission API, so LuckPerms reads
-them without any extra setup. Note that a node does nothing while the level is `0`: everyone clears
-level 0 already. Raise the level first, then grant the node.
-
-Full documentation is in Russian above.
-
 ## Лицензия
 
-Мод распространяется как есть для установки на серверы. Исходный код закрыт; декомпиляция,
-модификация и перераспространение запрещены. Все права принадлежат Farmstead.
+Устанавливать на свои серверы и **раздавать игрокам своего сервера** — можно, в том числе на платных
+серверах. Публиковать на файлообменниках и в каталогах модов, декомпилировать и изменять — нельзя.
+Полный текст: [LICENSE.md](LICENSE.md).
+
+История версий — [CHANGELOG.md](CHANGELOG.md). Нашли способ обойти токен, лимиты или права —
+[SECURITY.md](SECURITY.md), не открывайте публичный issue.

@@ -1,0 +1,59 @@
+name: Проблема / Bug report
+description: Что-то не работает — команда, установка постройки, подключение / Something is broken
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Не пишите здесь токен `fsm_…`** — это доступ к вашему кошельку. Если он попал в лог,
+        отзовите его в [кабинете](https://farmsteadminecraft.online/cabinet/ai-builder) и вставьте
+        сюда лог уже без него.
+
+        **Never paste an `fsm_…` token here** — it is access to your wallet. If it appears in a log,
+        revoke it in the [cabinet](https://farmsteadminecraft.online/cabinet/ai-builder) first and
+        redact it from what you post.
+
+  - type: input
+    id: version
+    attributes:
+      label: Версия мода / Mod version
+      description: Из названия релиза или из `Implementation-Version` в манифесте jar.
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: platform
+    attributes:
+      label: Сервер / Server
+      description: Загрузчик, версия игры, другие моды, которые могут быть при чём.
+      placeholder: "NeoForge 21.1.230, MC 1.21.1, LuckPerms, RegionGuard"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Что произошло / What happened
+      description: Что вы делали, что ожидали и что получилось вместо этого.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Лог / Log
+      description: |
+        Строки из `logs/latest.log` — обязательно `[hello]` и `[regionguard]` со старта сервера,
+        плюс всё, что появилось в момент проблемы. Токен вырежьте.
+      render: text
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Проверено / Checked
+      options:
+        - label: Мод стоит и на сервере, и на клиенте / The mod is on both the server and the client
+        - label: В логе есть строка `[hello] AI service OK` / The log has `[hello] AI service OK`
+        - label: Токен не попал в текст issue / No token in this issue
+          required: true

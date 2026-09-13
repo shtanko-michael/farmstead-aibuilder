@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Кабинет — токен, лимиты, расход / Cabinet — token, limits, spend
+    url: https://farmsteadminecraft.online/cabinet/ai-builder
+    about: Создать или отозвать токен, задать лимиты, посмотреть, кто сколько потратил.
+  - name: Уязвимость / Security issue
+    url: https://github.com/shtanko-michael/farmstead-aibuilder/blob/main/SECURITY.md
+    about: Обход токена, лимитов или прав — напишите на почту, не открывайте issue.

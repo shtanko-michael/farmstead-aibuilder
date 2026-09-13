@@ -1,0 +1,37 @@
+name: Идея / Feature request
+description: Чего не хватает в моде / Something the mod should do
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Какую задачу это решает / What problem does it solve
+      description: |
+        Опишите ситуацию на вашем сервере, а не только желаемую кнопку — так понятнее, какое решение
+        подойдёт.
+
+        Describe the situation on your server, not only the feature you have in mind: it makes the
+        right solution easier to find.
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: Как вы это видите / What you have in mind
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Чего касается / Area
+      options:
+        - Генерация построек / Build generation
+        - Команды и голограмма / Commands and hologram
+        - Права и лимиты / Permissions and limits
+        - Кабинет и отчёты / Cabinet and reports
+        - Поддержка другого загрузчика / Another mod loader
+        - Другое / Other
+    validations:
+      required: true
