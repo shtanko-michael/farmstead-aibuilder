@@ -108,7 +108,7 @@ version lives in the release title and in the jar manifest. A permanent link to 
 
 - A **NeoForge 1.21.1** server, Java 21.
 - **The same jar on players' clients**, in their `mods/`: the client half draws the aiming hologram
-  (`R` rotates, LMB/Enter places, RMB/Esc cancels) and the whole build animation.
+  (`R` rotates, LMB/Enter places, RMB/Backspace cancels) and the whole build animation.
 - An account on [farmsteadminecraft.online](https://farmsteadminecraft.online) with AI tokens on the
   balance.
 - Outbound HTTPS from the server to `ai.farmsteadminecraft.online`.
@@ -154,7 +154,7 @@ Only `create` (and `area build`) spends tokens. Everything else is free.
 | Command | What it does | Tokens | Node |
 |---|---|---|---|
 | `/aibuild create <description>` | Generate a build and place it through the hologram | **yes** | `aibuilder.command.create` |
-| `/aibuild area` | Selection mode: LMB sets corner 1, RMB corner 2, Esc exits | — | `aibuilder.command.area` |
+| `/aibuild area` | Selection mode: LMB sets corner 1, RMB corner 2, Backspace exits | — | `aibuilder.command.area` |
 | `/aibuild area build <description>` | Generate **into the selected region** | **yes** | `aibuilder.command.area` |
 | `/aibuild area pos1` / `pos2` / `clear` | Corners from the player's position (for clients without the mod) and reset | — | `aibuilder.command.area` |
 | `/aibuild list [page]` | Your own builds as a list; a row is clickable | — | `aibuilder.command.list` |
@@ -232,18 +232,18 @@ needed, and updating the mod does not reset them.
 
 ## Land protection
 
-The mod can only ask **RegionGuard**. What it does is visible in the log at startup:
+The mod can ask **RegionGuard** and **Farmstead Claims** (Farmstead Claims wins when both are installed). What it does is visible in the log at startup:
 
 | Log line | What it means |
 |---|---|
-| `[regionguard] API available — claims are enforced for non-operators` | Claims are checked: the whole build must fit inside the player's region |
-| `[regionguard] API not available (…) — claim checks are skipped` | The plugin is absent, the mod knows nothing about your claims and checks **no land** |
+| `[regionguard] API available (ClaimsApi / RegionGuardApi) — claims are enforced for non-operators` | Claims are checked: the whole build must fit inside the player's region |
+| `[regionguard] API not available — claim checks are skipped` | The plugin is absent, the mod knows nothing about your claims and checks **no land** |
 
-Without RegionGuard a player will place a build anywhere the command is allowed. Options: raise
+Without a claims mod a player will place a build anywhere the command is allowed. Options: raise
 `create_level`/`area_level` and grant the node to people you trust, cap the daily limit — or install
-RegionGuard.
+RegionGuard or Farmstead Claims.
 
-If RegionGuard is installed but its call fails, the mod **refuses** the placement and logs
+If a claims mod is installed but its call fails, the mod **refuses** the placement and logs
 `[regionguard] claim check failed` — a protection check that errors must not read as "permitted".
 
 ## What is sent to the service
@@ -258,15 +258,23 @@ for `/aibuild undo`.
 | In the log or in chat | What it means |
 |---|---|
 | `[hello] … rejected this server's token` | The token is wrong or revoked — check `bearer_token` |
-| `Ваш лимит на сегодня исчерпан` | The player's daily cap — raise it in the cabinet or wait for midnight UTC |
-| `Дневной лимит сервера исчерпан` | The server's daily cap — same |
-| `Администратор сервера закрыл вам генерацию` | The player is on the deny list |
-| `Сервис занят` | Too many generations at once — try again in a minute |
-| `Недостаточно токенов` | Your AI wallet is below the minimum — top it up in the cabinet |
-| `[regionguard] claim check failed` | RegionGuard is installed but its call failed; placements are refused until that is fixed |
+| `Your limit for today is used up` | The player's daily cap — raise it in the cabinet or wait for midnight UTC |
+| `The server's daily limit is used up` | The server's daily cap — same |
+| `The server administrator has turned off build generation for you` | The player is on the deny list |
+| `The service is busy` | Too many generations at once — try again in a minute |
+| `Not enough AI tokens` | Your AI wallet is below the minimum — top it up in the cabinet |
+| `[regionguard] claim check failed` | A claims mod is installed but its call failed; placements are refused until that is fixed |
 | A command with non-Latin text "does not go through" | Some mod filters characters in commands (in NeoEssentials it is `security.allowUnsafeCommands`) |
 
-In-game messages are currently Russian; interface localization is planned.
+## Language
+
+The mod speaks English and Russian. By default every player reads chat in their own game language (Russian for Russian, Ukrainian, Belarusian and Kazakh clients, English for everyone else); the hologram hints on screen always follow the client. To pin one language for the whole server:
+
+```toml
+# config/farmstead_aibuilder.toml
+[language]
+language = "en_us"   # auto | en_us | ru_ru
+```
 
 Bugs and suggestions: [Issues](https://github.com/shtanko-michael/farmstead-aibuilder/issues).
 

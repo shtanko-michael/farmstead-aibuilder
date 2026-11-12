@@ -5,6 +5,32 @@
 
 One section per release, newest first. Versions follow [semantic versioning](https://semver.org/).
 
+## v1.1.0
+
+- Мод говорит по-английски и по-русски: чат — на языке игры каждого игрока, `[language] language` в конфиге закрепляет один.
+- Отмена голограммы и выхода из `/aibuild area` — ПКМ или **Backspace** (Esc перехватывало меню паузы).
+- Подсказки в чате с кликабельными командами после постройки, снятия и генерации.
+- Новые стадии генерации в чате; повтор одной стадии подряд не выводится.
+- Строка в консоли сервера на каждую успешную генерацию.
+- Отказ вне привата (с RegionGuard или Farmstead Claims) показывает размеры, углы и команды для привата.
+- Сообщения подписаны `[Farmstead AI]`, анонс готовой постройки (`[chat] announce_builds`).
+- `/aibuild`, `help`, `about`, `status` (операторы).
+- Клиенты без мода снова могут зайти на сервер.
+- Ошибка укладки не роняет сервер; карты высот после постройки; свой пул HTTP; повтор handshake.
+- Кабинет: пауза, кулдаун, автопродление лимита, письма, лента событий.
+
+- The mod speaks English and Russian: chat follows each player's game language, `[language] language` in the config pins one.
+- Cancel the hologram and leave `/aibuild area` with RMB or **Backspace** (Esc was taken by the pause menu).
+- Chat hints with clickable commands after placing, removing and generating.
+- New generation stages in chat; a stage repeated back to back is said once.
+- A server console line for every successful generation.
+- A refusal outside a claim (with RegionGuard or Farmstead Claims) shows the size, the corners and the commands to claim it.
+- Chat lines signed `[Farmstead AI]`; finished builds announced (`[chat] announce_builds`).
+- `/aibuild`, `help`, `about`, `status` (operators).
+- Clients without the mod can join again.
+- A failed print no longer crashes the server; heightmaps after a print; own HTTP pool; handshake retried.
+- Cabinet: pause, cooldown, limit auto-extension, emails, event feed.
+
 ## v1.0.0 — 13.09.2026
 
 Первый публичный релиз. / First public release.
