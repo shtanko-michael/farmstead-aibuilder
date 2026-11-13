@@ -40,6 +40,23 @@
 
 ---
 
+## Как это выглядит
+
+| | |
+|---|---|
+| <img src="assets/gifs/castle.gif" alt="Замок вырастает из своей голограммы" width="100%"> | <img src="assets/gifs/ship.gif" alt="Галеон в собственном доке" width="100%"> |
+| Замок вырастает из своей голограммы | Галеон в собственном доке |
+| <img src="assets/gifs/tavern.gif" alt="Таверна из бруса, ряд за рядом" width="100%"> | <img src="assets/gifs/harbor.gif" alt="Целая гавань по одному описанию" width="100%"> |
+| Таверна из бруса, ряд за рядом | Целая гавань по одному описанию |
+| <img src="assets/gifs/sakura.gif" alt="Не только дома: сад с сакурой" width="100%"> | <img src="assets/gifs/windmill.gif" alt="Мельница — вместе с крыльями" width="100%"> |
+| Не только дома: сад с сакурой | Мельница — вместе с крыльями |
+| <img src="assets/gallery/hologram.jpg" alt="Голограмма: куда и какой стороной, поворот на R" width="100%"> | <img src="assets/gallery/chat.jpg" alt="Каждый шаг — в чате, команды кликабельны" width="100%"> |
+| Голограмма: куда и какой стороной, поворот на R | Каждый шаг — в чате, команды кликабельны |
+
+Ролики сняты на реальном сервере с шейдерами, ускорены в 4 раза.
+
+---
+
 ## Что умеет мод
 
 **Генерация построек по описанию.** Игрок описывает словами, что хочет — дом, башню, мост, ферму,
@@ -163,6 +180,9 @@ Paper/Purpur, Fabric и Forge 1.20.1 — в планах.
 | `/aibuild remove <n>` | То же для любой строки `placed` | — | `aibuilder.command.undo` |
 | `/aibuild balance` | Сколько токенов осталось игроку на сегодня | — | `aibuilder.command.balance` |
 | `/aibuild topup` | Объясняет, что генерации оплачивает администратор | — | `aibuilder.command.topup` |
+| `/aibuild`, `/aibuild help` | Команды, доступные этому игроку | — | — |
+| `/aibuild about` | Версия мода и регистрация сервера | — | — |
+| `/aibuild status` | Расход за сегодня, действующий лимит, кулдаун и состояние кошелька (операторы, работает из консоли) | — | `aibuilder.command.status` |
 
 Постройки игроков вашего сервера видны только на нём: у них нет доступа к лаунчеру и маркету
 Farmstead, и ваш собственный кабинет их не показывает — только расход.
@@ -209,7 +229,7 @@ area_level   = 4
 ```
 aibuilder.command.create    aibuilder.command.area     aibuilder.command.get
 aibuilder.command.list      aibuilder.command.placed   aibuilder.command.undo
-aibuilder.command.balance   aibuilder.command.topup
+aibuilder.command.balance   aibuilder.command.topup    aibuilder.command.status
 ```
 
 `undo` и `remove` делят одну ноду (`aibuilder.command.undo`): это одна власть над одними записями.

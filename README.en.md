@@ -18,8 +18,8 @@
 </p>
 
 <p align="center">
-  <img src="assets/demo-build.gif"
-       alt="Generating a Minecraft building from a text prompt: hologram preview, then the structure is laid block by block"
+  <img src="assets/banner.gif"
+       alt="A castle, a galleon and a sakura garden generated from text prompts, rising out of their holograms block by block"
        width="860">
 </p>
 
@@ -32,6 +32,23 @@
   ·
   <a href="#permissions-and-luckperms">Permissions</a>
 </p>
+
+---
+
+## See it
+
+| | |
+|---|---|
+| <img src="assets/gifs/castle.gif" alt="A castle rises out of its hologram" width="100%"> | <img src="assets/gifs/ship.gif" alt="A galleon in its own dock" width="100%"> |
+| A castle rises out of its hologram | A galleon in its own dock |
+| <img src="assets/gifs/tavern.gif" alt="A timber tavern, course by course" width="100%"> | <img src="assets/gifs/harbor.gif" alt="A whole harbour from one prompt" width="100%"> |
+| A timber tavern, course by course | A whole harbour from one prompt |
+| <img src="assets/gifs/sakura.gif" alt="Not only buildings: a sakura garden" width="100%"> | <img src="assets/gifs/windmill.gif" alt="A windmill, sails and all" width="100%"> |
+| Not only buildings: a sakura garden | A windmill, sails and all |
+| <img src="assets/gallery/hologram.jpg" alt="The hologram: where and which way, R to rotate" width="100%"> | <img src="assets/gallery/chat.jpg" alt="Every step told in chat, commands clickable" width="100%"> |
+| The hologram: where and which way, R to rotate | Every step told in chat, commands clickable |
+
+Filmed on a real server with shaders, sped up 4×.
 
 ---
 
@@ -164,6 +181,9 @@ Only `create` (and `area build`) spends tokens. Everything else is free.
 | `/aibuild remove <n>` | The same for any row of `placed` | — | `aibuilder.command.undo` |
 | `/aibuild balance` | How many tokens the player has left today | — | `aibuilder.command.balance` |
 | `/aibuild topup` | Explains that the administrator pays for generations | — | `aibuilder.command.topup` |
+| `/aibuild`, `/aibuild help` | The commands this player may use | — | — |
+| `/aibuild about` | Mod version and the server's registration | — | — |
+| `/aibuild status` | Today's spend, the effective cap, cooldown and wallet state (operators, works from the console) | — | `aibuilder.command.status` |
 
 Builds made by players on your server are visible only there: they have no access to the Farmstead
 launcher or marketplace, and your own cabinet does not show them either — only the spend.
@@ -210,7 +230,7 @@ The full list of nodes:
 ```
 aibuilder.command.create    aibuilder.command.area     aibuilder.command.get
 aibuilder.command.list      aibuilder.command.placed   aibuilder.command.undo
-aibuilder.command.balance   aibuilder.command.topup
+aibuilder.command.balance   aibuilder.command.topup    aibuilder.command.status
 ```
 
 `undo` and `remove` share one node (`aibuilder.command.undo`): it is one power over the same records.
