@@ -5,6 +5,12 @@
 
 One section per release, newest first. Versions follow [semantic versioning](https://semver.org/).
 
+## v1.1.1
+
+- Строки рукопожатия с сервисом в логе сервера подписаны `[Farmstead]` вместо `[hello]`.
+
+- Service handshake lines in the server log are tagged `[Farmstead]` instead of `[hello]`.
+
 ## v1.1.0
 
 - Мод говорит по-английски и по-русски: чат — на языке игры каждого игрока, `[language] language` в конфиге закрепляет один.

@@ -154,11 +154,11 @@ Paper/Purpur, Fabric и Forge 1.20.1 — в планах.
 5. Перезапустите сервер. В логе появятся две строки:
 
    ```
-   [hello] AI service OK: server='Основной сервер' mode=external apiVersion=1 …
+   [Farmstead] AI service OK: server='Основной сервер' mode=external apiVersion=1 …
    [regionguard] API not available (…) — claim checks are skipped
    ```
 
-   Первая — токен принят. Если вместо неё `[hello] the AI service rejected this server's token`,
+   Первая — токен принят. Если вместо неё `[Farmstead] the AI service rejected this server's token`,
    токен вписан неверно или отозван. Вторая — про защиту территорий, см. [ниже](#территория).
 
 Токен — это ключ к вашему кошельку. Не публикуйте конфиг. Утёк — отзовите в кабинете и создайте новый.
@@ -275,7 +275,7 @@ RegionGuard либо Farmstead Claims.
 
 | В логе или в чате | Что это значит |
 |---|---|
-| `[hello] … rejected this server's token` | Токен неверный или отозван — проверьте `bearer_token` |
+| `[Farmstead] … rejected this server's token` | Токен неверный или отозван — проверьте `bearer_token` |
 | `Ваш лимит на сегодня исчерпан` | Дневной лимит игрока — поднимите в кабинете или подождите до полуночи UTC |
 | `Дневной лимит сервера исчерпан` | Общий лимит сервера — то же |
 | `Администратор сервера закрыл вам генерацию` | Игрок в списке запрещённых |

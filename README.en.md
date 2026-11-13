@@ -153,12 +153,12 @@ them — no aiming, no animation. That is a fallback, not a way to play.
 5. Restart the server. Two lines appear in the log:
 
    ```
-   [hello] AI service OK: server='Main server' mode=external apiVersion=1 …
+   [Farmstead] AI service OK: server='Main server' mode=external apiVersion=1 …
    [regionguard] API not available (…) — claim checks are skipped
    ```
 
    The first means the token was accepted. If you see
-   `[hello] the AI service rejected this server's token` instead, the token is wrong or revoked. The
+   `[Farmstead] the AI service rejected this server's token` instead, the token is wrong or revoked. The
    second is about land protection, see [below](#land-protection).
 
 The token is a key to your wallet. Do not publish the config. If it leaks, revoke it in the cabinet
@@ -277,7 +277,7 @@ for `/aibuild undo`.
 
 | In the log or in chat | What it means |
 |---|---|
-| `[hello] … rejected this server's token` | The token is wrong or revoked — check `bearer_token` |
+| `[Farmstead] … rejected this server's token` | The token is wrong or revoked — check `bearer_token` |
 | `Your limit for today is used up` | The player's daily cap — raise it in the cabinet or wait for midnight UTC |
 | `The server's daily limit is used up` | The server's daily cap — same |
 | `The server administrator has turned off build generation for you` | The player is on the deny list |
